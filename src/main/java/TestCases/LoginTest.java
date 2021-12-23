@@ -16,7 +16,7 @@ import Constant.Constant;
             System.out.println("Pre-condition");
 
             System.setProperty("webdriver.chrome.driver",Utilities.getProjectPath()
-                    + "\\Executables\\chromedriver.exe");
+                    + "\\src\\main\\java\\Executables\\chromedriver.exe");
             Constant.WEBDRIVER = new ChromeDriver();
             Constant.WEBDRIVER.manage().window().maximize();
         }
