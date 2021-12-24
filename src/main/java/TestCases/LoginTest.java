@@ -1,4 +1,5 @@
 package TestCases;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -40,5 +41,53 @@ import Constant.Constant;
             String expectedMsg = "Welcome " + Constant.USERNAME;
 
             Assert.assertEquals(actualMsg,expectedMsg,"Welcome message is not displayed as expected");
+        }
+        @Test
+        public void TC02() {
+            System.out.println("TC02 - User can't login with blank 'Username' textbox");
+            HomePage homePage = new HomePage();
+            homePage.open();
+
+            LoginPage loginPage = homePage.gotoLoginPage();
+
+            loginPage.login("",Constant.PASSWORD);
+
+            String actualMsg = loginPage.getLoginErrorMsg();
+
+            Assert.assertEquals(actualMsg,"There was a problem with your login and/or errors exist in your form.");
+        }
+        @Test
+        public void TC03() {
+            System.out.println("TC03 - User can not log into Railway with invalid password");
+            HomePage homePage = new HomePage();
+            homePage.open();
+
+            LoginPage loginPage = homePage.gotoLoginPage();
+
+            loginPage.login(Constant.USERNAME,Constant.INVALID_PASSWORD);
+
+            String actualMsg = loginPage.getLoginErrorMsg();
+
+            Assert.assertEquals(actualMsg,"There was a problem with your login and/or errors exist in your form.");
+        }
+        @Test
+        public void TC04() {
+            System.out.println("TC04 - User is redirected to Book ticket page after logging in");
+            HomePage homePage = new HomePage();
+            homePage.open();
+
+            PageObjects.Railway.BookTicketPage bookTicketPage = homePage.gotoBookTicketPage();
+            LoginPage loginPage = new LoginPage();
+
+            String checkLoginPage = String.valueOf(loginPage.checkLoginPageTitle());
+            Assert.assertEquals(checkLoginPage,"true");
+
+            loginPage.login(Constant.USERNAME,Constant.PASSWORD);
+
+            String checkBookTicketPage = String.valueOf(bookTicketPage.checkBookTicketPageTitle());
+            String checkBookTicketForm = String.valueOf(bookTicketPage.checkBookTicketForm());
+
+            Assert.assertEquals(checkBookTicketPage,"true");
+            Assert.assertEquals(checkBookTicketForm,"true");
         }
 }
