@@ -51,4 +51,12 @@ public class LoginPage extends GeneralPage{
         return this.getLblLoginErrorMsg().getText();
     }
 
+    public void loginMultipleTimes(String username,String password,int number)
+    {
+        this.login(username,password);
+        for(int i = 1;i <= number-1;i++)
+        {
+            this.login("",password);
+        }
+    }
 }

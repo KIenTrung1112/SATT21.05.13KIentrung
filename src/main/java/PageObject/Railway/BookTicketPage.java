@@ -1,4 +1,4 @@
-package PageObjects.Railway;
+package PageObject.Railway;
 
 import Constant.Constant;
 import PageObject.Railway.GeneralPage;
@@ -26,6 +26,8 @@ public class BookTicketPage extends GeneralPage {
     public boolean checkBookTicketPageTitle()
     {
         String title = "Book ticket";
-        return this.getLblPageTitle().getText().equals(title);
+        return this.getLabelPageTitle().getText().equals(title);
     }
+
+
 }

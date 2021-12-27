@@ -1,11 +1,10 @@
 package PageObject.Railway;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import Constant.Constant;
-
-import javax.xml.stream.XMLStreamReader;
 
 public class GeneralPage {
 
@@ -15,6 +14,8 @@ public class GeneralPage {
     private final By tabBookTicket = By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']");
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By lblPageTitle = By.xpath("//h1[@align='center']");
+    private final By tabContact = By.xpath("//div[@id='menu']//a[@href='/Page/Contact.cshtml']");
+    private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
 
     // Elements
     protected WebElement getTabLogin() {
@@ -33,27 +34,56 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
     }
 
-    public WebElement getLblPageTitle() { return Constant.WEBDRIVER.findElement(lblPageTitle); }
+    public WebElement getLabelPageTitle() { return Constant.WEBDRIVER.findElement(lblPageTitle); }
 
+    protected WebElement getTabContact() { return Constant.WEBDRIVER.findElement(tabContact); }
+
+    protected WebElement getTabRegister() { return Constant.WEBDRIVER.findElement(tabRegister); }
 
     // Methods
     public String getWelcomeMessage() {
         return this.getLblWelcomeMessage().getText();
     }
 
-    public LoginPage gotoLoginPage() {
+    public void gotoLoginPage() {
         this.getTabLogin().click();
-        return new LoginPage();
     }
 
-    public PageObjects.Railway.BookTicketPage gotoBookTicketPage() {
+    public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
-        return new PageObjects.Railway.BookTicketPage();
+    }
+
+    public void gotoContactPage()
+    {
+        this.getTabContact().click();
+    }
+
+    public void clickTabLogout()
+    {
+        this.getTabLogout().click();
     }
 
     public boolean checkLoginPageTitle() {
         String title = "Login page";
-        return this.getLblPageTitle().getText().equals(title);
+        return this.getLabelPageTitle().getText().equals(title);
+    }
+
+    public void gotoRegisterPage()
+    {
+        this.getTabRegister().click();
+    }
+
+
+    public boolean checkTabLogout()
+    {
+        try
+        {
+            Constant.WEBDRIVER.findElement(tabLogout);
+            return true;
+        }
+        catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
 }
