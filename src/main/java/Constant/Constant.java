@@ -9,6 +9,7 @@ public class Constant {
     public static final String USERNAME = "trannguyen_kientrung@yahoo.com";
     public static final String PASSWORD = "trunganchao1998";
     public static final String INVALID_PASSWORD = PASSWORD+"zzz";
+    public static final String INVALID_EMAIL = "12345@amail.com";
 
     static String getAlphaNumericString(int n)
     {

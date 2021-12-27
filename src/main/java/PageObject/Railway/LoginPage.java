@@ -12,6 +12,7 @@ public class LoginPage extends GeneralPage{
     private final By _txtPassword = By.xpath("//input[@id='password']");
     private final By _btnLogin = By.xpath("//input[@value='login']");
     private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+    private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
 
     // Elements
     public WebElement getTxtUsername()
@@ -46,9 +47,19 @@ public class LoginPage extends GeneralPage{
         return new HomePage();
     }
 
+    public WebElement getLabelLoginErrorMessage()
+    {
+        return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
+    }
+
     public String getLoginErrorMsg()
     {
         return this.getLblLoginErrorMsg().getText();
+    }
+
+    public String getLoginErrorMessage()
+    {
+        return this.getLabelLoginErrorMessage().getText();
     }
 
     public void loginMultipleTimes(String username,String password,int number)
