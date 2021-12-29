@@ -12,15 +12,15 @@ public class TC10 extends TestBase {
         HomePage homePage = new HomePage();
         RegisterPage registerPage = new RegisterPage();
 
-        System.out.println("Pre-condition: Create and activate a new account");
-        System.out.println("1. Navigate to QA Railway Website");
+
+        System.out.println(" Navigate to QA Railway Website");
         homePage.open();
 
-        System.out.println("2. Click on 'Register' tab");
+        System.out.println(" Click on 'Register' tab");
         homePage.gotoRegisterPage();
 
-        System.out.println("3. Enter information of the created account in Pre-condition");
-        System.out.println("4. Click on 'Register' button");
+        System.out.println(" Enter information of the created account in Pre-condition");
+        System.out.println(" Click on 'Register' button");
         registerPage.register(Constant.USERNAME,Constant.REGISTER_PASSWORD,Constant.REGISTER_CONFIRM_PASSWORD,Constant.REGISTER_PID);
 
         String actualMessage = registerPage.getRegisterErrorMessage();

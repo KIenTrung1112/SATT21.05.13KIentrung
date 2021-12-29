@@ -12,14 +12,14 @@ public class TC07 extends TestBase {
         HomePage homePage = new HomePage();
         RegisterPage registerPage = new RegisterPage();
 
-        System.out.println("1. Navigate to QA Railway Website");
+        System.out.println("Navigate to QA Railway Website");
         homePage.open();
 
-        System.out.println("2. Click on 'Register' tab");
+        System.out.println(" Click on 'Register' tab");
         homePage.gotoRegisterPage();
 
-        System.out.println("3. Enter valid information into all fields");
-        System.out.println("4. Click on 'Register' button");
+        System.out.println("Enter valid information into all fields");
+        System.out.println(" Click on 'Register' button");
         registerPage.register(Constant.REGISTER_RANDOM_EMAIL(),Constant.REGISTER_PASSWORD,Constant.REGISTER_CONFIRM_PASSWORD,Constant.REGISTER_PID);
 
         String actualMessage = registerPage.getRegisterSuccessMessage();

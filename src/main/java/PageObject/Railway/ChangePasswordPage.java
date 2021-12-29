@@ -35,7 +35,7 @@ public class ChangePasswordPage {
     // Methods
     public void changePassword(String currentpassword,String newpassword,String confirmpassword)
     {
-        //Submit register credentials
+        //Submit
         this.getTextCurrentPassword().sendKeys(currentpassword);
         this.getTextNewPassword().sendKeys(newpassword);
         this.getTextConfirmPassword().sendKeys(confirmpassword);

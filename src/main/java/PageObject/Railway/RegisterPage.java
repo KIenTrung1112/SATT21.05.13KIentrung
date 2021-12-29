@@ -10,11 +10,11 @@ public class RegisterPage {
     private final By txtPassword = By.id("password");
     private final By txtConfirmPassword = By.id("confirmPassword");
     private final By txtPID = By.id("pid");
-    private final By btnRegister = By.xpath("//input[@value='Register']");
     private final By lblRegisterErrorMsg = By.xpath("//p[@class='message error']");
     private final By lblRegisterSuccessMsg = By.xpath("//div[@id='content']");
-    private final By lblPasswordValidationErrorMsg = By.xpath("//label[@for='password' and @class='validation-error']");
     private final By lblPIDValidationErrorMsg = By.xpath("//label[@for='pid' and @class='validation-error']");
+    private final By lblPasswordValidationErrorMsg = By.xpath("//label[@for='password' and @class='validation-error']");
+    private final By btnRegister = By.xpath("//input[@value='Register']");
 
     // Elements
     public WebElement getTextEmail()

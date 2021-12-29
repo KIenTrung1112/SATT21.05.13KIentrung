@@ -13,16 +13,16 @@ public class TC04 extends TestBase {
         LoginPage loginPage = new LoginPage();
         PageObject.Railway.BookTicketPage bookTicketPage = new PageObject.Railway.BookTicketPage();
 
-        System.out.println("1. Navigate to QA Railway Website");
+        System.out.println(" Navigate to QA Railway Website");
         homePage.open();
 
-        System.out.println("2. Click on 'Book ticket' tab");
+        System.out.println(" Click on 'Book ticket' tab");
         homePage.gotoBookTicketPage();
 
         String checkLoginPage = String.valueOf(loginPage.checkLoginPageTitle());
         Assert.assertEquals(checkLoginPage,"true");
 
-        System.out.println("3. Login with valid account");
+        System.out.println(" Login with valid account");
         loginPage.login(Constant.USERNAME,Constant.PASSWORD);
 
         String checkBookTicketPage = String.valueOf(bookTicketPage.checkBookTicketPageTitle());
