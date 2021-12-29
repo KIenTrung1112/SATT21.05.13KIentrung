@@ -16,9 +16,5 @@ public class HomePage extends GeneralPage {
         return this;
     }
 
-    public boolean checkHomePageTitle()
-    {
-        String title = "Welcome to Safe Railway";
-        return this.getLabelPageTitle().getText().equals(title);
-    }
+
 }

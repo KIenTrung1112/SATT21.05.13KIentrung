@@ -19,6 +19,8 @@ public class TC10 extends TestBase {
         System.out.println(" Click on 'Register' tab");
         homePage.gotoRegisterPage();
 
+
+
         System.out.println(" Enter information of the created account in Pre-condition");
         System.out.println(" Click on 'Register' button");
         registerPage.register(Constant.USERNAME,Constant.REGISTER_PASSWORD,Constant.REGISTER_CONFIRM_PASSWORD,Constant.REGISTER_PID);

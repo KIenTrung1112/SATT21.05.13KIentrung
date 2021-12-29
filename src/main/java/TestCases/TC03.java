@@ -12,14 +12,14 @@ public class TC03 extends TestBase {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
 
-        System.out.println("1. Navigate to QA Railway Website");
+        System.out.println(" Navigate to QA Railway Website");
         homePage.open();
 
-        System.out.println("2. Click on 'Login' tab");
+        System.out.println(" Click on 'Login' tab");
         homePage.gotoLoginPage();
 
-        System.out.println("3. Enter valid Email and invalid Password");
-        System.out.println("4. Click on 'Login' button");
+        System.out.println(" Enter valid Email and invalid Password");
+        System.out.println(" Click on 'Login' button");
         loginPage.login(Constant.USERNAME,Constant.INVALID_PASSWORD);
 
         String actualMsg = loginPage.getLoginErrorMsg();

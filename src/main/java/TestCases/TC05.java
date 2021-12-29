@@ -12,14 +12,14 @@ public class TC05 extends TestBase {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
 
-        System.out.println(" Navigate to QA Railway Website");
+        System.out.println(" Navigate to  Railway ");
         homePage.open();
 
         System.out.println(" Click on 'Login' tab");
         homePage.gotoLoginPage();
 
         System.out.println(" Enter valid information into 'Username' textbox except 'Password' textbox.");
-        System.out.println("Click on 'Login' button");
+        System.out.println(" Click on 'Login' button");
         System.out.println(" Repeat step 3 three more times.");
         loginPage.loginMultipleTimes(Constant.USERNAME,Constant.INVALID_PASSWORD,4);
 
