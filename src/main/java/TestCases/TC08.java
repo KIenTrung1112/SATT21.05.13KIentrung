@@ -11,14 +11,10 @@ public class TC08 extends TestBase {
     public void TC08() {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
-
-
         System.out.println(" Navigate to QA Railway Website");
         homePage.open();
-
         System.out.println(" Click on 'Login' tab");
         homePage.gotoLoginPage();
-
         System.out.println(" Enter username and password of account hasn't been activated.");
         System.out.println(" Click on 'Login' button");
         loginPage.login(Constant.INVALID_EMAIL,Constant.INVALID_PASSWORD);

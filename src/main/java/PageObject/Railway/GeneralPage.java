@@ -17,30 +17,27 @@ public class GeneralPage {
     private final By tabContact = By.xpath("//div[@id='menu']//a[@href='/Page/Contact.cshtml']");
     private final By tabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
     private final By tabChangePassword = By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']");
+    private final By tabTimetable = By.xpath("//div[@id='menu']//a[@href='TrainTimeListPage.cshtml']");
+    private final By tabMyTicket = By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']");
 
     // Elements
     protected WebElement getTabLogin() {
         return Constant.WEBDRIVER.findElement(tabLogin);
     }
-
     protected WebElement getTabLogout() {
         return Constant.WEBDRIVER.findElement(tabLogout);
     }
-
     protected WebElement getTabBookTicket() {
         return Constant.WEBDRIVER.findElement(tabBookTicket);
     }
-
     protected WebElement getLblWelcomeMessage() {
         return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
     }
-
-    public WebElement getLabelPageTitle() { return Constant.WEBDRIVER.findElement(lblPageTitle); }
-
+    protected WebElement getLabelPageTitle() { return Constant.WEBDRIVER.findElement(lblPageTitle); }
     protected WebElement getTabContact() { return Constant.WEBDRIVER.findElement(tabContact); }
-
     protected WebElement getTabRegister() { return Constant.WEBDRIVER.findElement(tabRegister); }
-
+    protected WebElement getTabMyTicket() { return Constant.WEBDRIVER.findElement(tabMyTicket); }
+    protected WebElement getTabTimeTable() { return Constant.WEBDRIVER.findElement(tabTimetable); }
     protected WebElement getTabChangePassword() { return Constant.WEBDRIVER.findElement(tabChangePassword); }
 
     // Methods
@@ -88,6 +85,13 @@ public class GeneralPage {
             return false;
         }
     }
+
+    public void gotoMyTicket()
+    {
+        this.getTabMyTicket().click();
+    }
+
+    public void gotoTimetable() { this.getTabTimeTable().click(); }
 
     public void gotoChangePassword() {
         this.getTabChangePassword().click();

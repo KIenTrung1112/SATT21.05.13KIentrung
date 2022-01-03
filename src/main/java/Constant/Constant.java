@@ -25,6 +25,11 @@ public class Constant {
         }
         return r.toString();
     }
+    public static final String DEPART_DATE = "1/7/2022";
+    public static final String DEPART_FROM = "Nha Trang";
+    public static final String ARRIVE_AT = "Sài Gòn";
+    public static final String SEAT_TYPE = "Soft seat with air conditioner";
+    public static final String TICKET_AMOUNT = "5";
 
     public static final String REGISTER_RANDOM_EMAIL ()
     {

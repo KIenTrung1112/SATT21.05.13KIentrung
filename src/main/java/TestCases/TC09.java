@@ -13,20 +13,14 @@ public class TC09 extends TestBase {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
         ChangePasswordPage changePasswordPage = new ChangePasswordPage();
-
         System.out.println("Pre-condition: Create and activate a new account");
         System.out.println(" Navigate to QA Railway Website");
         homePage.open();
-
-
-
         System.out.println("Login with a valid account ");
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME,Constant.PASSWORD);
-
         System.out.println(" Click on 'Change Password' tab");
         homePage.gotoChangePassword();
-
         System.out.println(" Enter valid information into 'Current Password' textbox but " +
                 "enter 'a123:\"/{}!@$' into 'New Password' textbox " +
                 "and 'b456:\"/{}!@$' into 'Confirm Password' textbox.");

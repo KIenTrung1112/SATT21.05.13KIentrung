@@ -12,14 +12,11 @@ public class TC10 extends TestBase {
         HomePage homePage = new HomePage();
         RegisterPage registerPage = new RegisterPage();
 
-
         System.out.println(" Navigate to QA Railway Website");
         homePage.open();
 
         System.out.println(" Click on 'Register' tab");
         homePage.gotoRegisterPage();
-
-
 
         System.out.println(" Enter information of the created account in Pre-condition");
         System.out.println(" Click on 'Register' button");
