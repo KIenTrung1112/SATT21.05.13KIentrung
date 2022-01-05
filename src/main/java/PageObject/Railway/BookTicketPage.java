@@ -1,9 +1,7 @@
 package PageObject.Railway;
-
-import Constant.Constant;
-import PageObject.Railway.GeneralPage;
+import Common.Constant;
+import Common.Utilities;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -12,135 +10,120 @@ public class BookTicketPage extends GeneralPage {
 
     // Locators
     private final By frmBookTicketForm = By.xpath("//fieldset");
+    private final By cboDepartDate = By.name("Date");
+    private final By cboDepartStation = By.name("DepartStation");
+    private final By cboArriveStation = By.name("ArriveStation");
+    private final By cboSeatType = By.name("SeatType");
+    private final By cboTicketAmount = By.name("TicketAmount");
     private final By btnBookTicket = By.xpath("//input[@value='Book ticket']");
-    private final By ddlDepartStation = By.xpath("//select[@name='DepartStation']");
-    private final By ddlArriveStation = By.xpath("//select[@name='ArriveStation']");
-    private final By ddlSeatType = By.xpath("//select[@name='SeatType']");
-    private final By ddlTicketAmount = By.xpath("//select[@name='TicketAmount']");
-    private final By ddlDepartDate = By.xpath("//select[@name='Date']");
-    private final By tdSeatType = By.xpath("//div[@class='DivTable']//tr[@class='OddRow']//td[count(//div[@class='DivTable']//tr[@class='TableSmallHeader']//th[text()='Seat Type']/preceding-sibling::th)+1]");
-    private final By tdDepartStation = By.xpath("//div[@class='DivTable']//tr[@class='OddRow']//td[count(//div[@class='DivTable']//tr[@class='TableSmallHeader']//th[text()='Depart Station']/preceding-sibling::th)+1]");
-    private final By tdDepartDate = By.xpath("//div[@class='DivTable']//tr[@class='OddRow']//td[count(//div[@class='DivTable']//tr[@class='TableSmallHeader']//th[text()='Depart Date']/preceding-sibling::th)+1]");
-    private final By tdTicketAmount = By.xpath("//div[@class='DivTable']//tr[@class='OddRow']//td[count(//div[@class='DivTable']//tr[@class='TableSmallHeader']//th[text()='Amount']/preceding-sibling::th)+1]");
-    private final By tdArriveStation = By.xpath("//div[@class='DivTable']//tr[@class='OddRow']//td[count(//div[@class='DivTable']//tr[@class='TableSmallHeader']//th[text()='Arrive Station']/preceding-sibling::th)+1]");
     private final By lblBookTicketErrorMsg = By.xpath("//p[@class='message error']");
-    private final By lblBookTicketValidationErrorMsg = By.xpath("//label[@class='validation-error']");
+    private final By lblTicketAmountValidationErrorMsg = By.xpath("//label[@class='validation-error']");
+    private final By txtDepartDateAfterBooking = By.xpath("//td[count(//th[text()='Depart Date']//preceding-sibling::th)+1]");
+    private final By txtDepartStationAfterBooking = By.xpath("//td[count(//th[text()='Depart Station']//preceding-sibling::th)+1]");
+    private final By txtArriveStationAfterBooking = By.xpath("//td[count(//th[text()='Arrive Station']//preceding-sibling::th)+1]");
+    private final By txtSeatTypeAfterBooking = By.xpath("//td[count(//th[text()='Seat Type']//preceding-sibling::th)+1]");
+    private final By txtAmountAfterBooking = By.xpath("//td[count(//th[text()='Amount']//preceding-sibling::th)+1]");
 
     // Elements
-    public Select getDdlDepartDate(){ return new Select(Constant.WEBDRIVER.findElement(ddlDepartDate)); }
-    public WebElement getFrmBookTicketForm()
+    protected WebElement getBookTicketForm() { return Constant.WEBDRIVER.findElement(frmBookTicketForm); }
+
+    protected WebElement getComboBoxDepartDate()
     {
-        return Constant.WEBDRIVER.findElement(frmBookTicketForm);
+        return Constant.WEBDRIVER.findElement(cboDepartDate);
     }
-    public WebElement getBtnBookTicket(){ return Constant.WEBDRIVER.findElement(btnBookTicket); }
-    public Select getDdlArriveStation(){ return new Select(Constant.WEBDRIVER.findElement(ddlArriveStation)); }
-    public Select getDdlDepartStation(){ return new Select(Constant.WEBDRIVER.findElement(ddlDepartStation));}
-    public Select getDdlTicketAmount(){ return new Select(Constant.WEBDRIVER.findElement(ddlTicketAmount)); }
-    public Select getDdlSeatType(){ return new Select(Constant.WEBDRIVER.findElement(ddlSeatType)); }
-    public WebElement getTdSeatType(){ return Constant.WEBDRIVER.findElement(tdSeatType); }
-    public WebElement getTdDepartStation(){ return Constant.WEBDRIVER.findElement(tdDepartStation); }
-    public WebElement getTdDepartDate(){ return Constant.WEBDRIVER.findElement(tdDepartDate); }
-    public WebElement getTdTicketAmount(){ return Constant.WEBDRIVER.findElement(tdTicketAmount); }
-    public WebElement getLblBookSuccess(){ return Constant.WEBDRIVER.findElement(btnBookTicket); }
-    public WebElement getTdArriveStation(){ return Constant.WEBDRIVER.findElement(tdArriveStation); }
-    public WebElement getLabelBookTicketErrorMessage() { return Constant.WEBDRIVER.findElement(lblBookTicketErrorMsg);}
-    public WebElement getLabelBookTicketValidationErrorMessage() { return Constant.WEBDRIVER.findElement(lblBookTicketValidationErrorMsg);}
+
+    protected WebElement getComboBoxDepartStation()
+    {
+        return Constant.WEBDRIVER.findElement(cboDepartStation);
+    }
+
+    protected WebElement getComboBoxArriveStation()
+    {
+        return Constant.WEBDRIVER.findElement(cboArriveStation);
+    }
+
+    protected WebElement getComboBoxSeatType() { return Constant.WEBDRIVER.findElement(cboSeatType); }
+
+    protected WebElement getComboBoxTicketAmount()
+    {
+        return Constant.WEBDRIVER.findElement(cboTicketAmount);
+    }
+
+    protected WebElement getButtonBookTicket()
+    {
+        return Constant.WEBDRIVER.findElement(btnBookTicket);
+    }
+
+    protected WebElement getLabelBookTicketErrorMessage() { return Constant.WEBDRIVER.findElement(lblBookTicketErrorMsg);}
+
+    protected WebElement getLabelTicketAmountValidationErrorMessage() { return Constant.WEBDRIVER.findElement(lblTicketAmountValidationErrorMsg);}
+
+    protected WebElement getTextDepartDateAfterBooking() { return Constant.WEBDRIVER.findElement(txtDepartDateAfterBooking); }
+
+    protected WebElement getTextDepartStationAfterBooking() { return Constant.WEBDRIVER.findElement(txtDepartStationAfterBooking); }
+
+    protected WebElement getTextArriveStationAfterBooking() { return Constant.WEBDRIVER.findElement(txtArriveStationAfterBooking); }
+
+    protected WebElement getTextSeatTypeAfterBooking() { return Constant.WEBDRIVER.findElement(txtSeatTypeAfterBooking); }
+
+    protected WebElement getTextAmountAfterBooking() { return Constant.WEBDRIVER.findElement(txtAmountAfterBooking); }
+
     // Methods
     public boolean checkBookTicketForm()
     {
-        return getFrmBookTicketForm().isDisplayed();
+        return getBookTicketForm().isDisplayed();
     }
 
-    public void bookingTicket(String departDate, String departStation, String arriveStation, String seatType, String ticketAmount){
-        try {
-            Select dllDepartD = this.getDdlDepartDate();
-            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].scrollIntoView(true);", dllDepartD);
-            dllDepartD.selectByVisibleText(departDate);Thread.sleep(2000);
-
-            Select dllDepartS = this.getDdlDepartStation();
-            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].scrollIntoView(true);", dllDepartS);
-            dllDepartS.selectByVisibleText(departStation);Thread.sleep(2000);
-
-            Select dllArriveS = this.getDdlArriveStation();
-            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].scrollIntoView(true);", dllArriveS);
-            dllArriveS.selectByVisibleText(arriveStation);Thread.sleep(2000);
-
-            Select dllSeat = this.getDdlSeatType();
-            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].scrollIntoView(true);", dllSeat);
-            dllSeat.selectByVisibleText(seatType);Thread.sleep(2000);
-
-            Select dllAmount = this.getDdlTicketAmount();
-            ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].scrollIntoView(true);", dllAmount);
-            dllAmount.selectByVisibleText(ticketAmount);
-            Thread.sleep(5000);
-            this.getBtnBookTicket().click();
-        }catch (Exception e){
-            System.out.println("Cannot chose an option in book ticket form!");
-            e.printStackTrace();
-        }
-    }
-    public boolean checkBookTicketPageTitle()
+    public String getBookTicketPageTitle()
     {
-        String title = "Book ticket";
-        return this.getLabelPageTitle().getText().equals(title);
+        return this.getLabelPageTitle().getText();
     }
 
-    public String getTicketSeatType(){
-        try{
-            return this.getTdSeatType().getText();
-        }catch (Exception e){
-            return "";
-        }
+    public void bookingTicket(String Date,String departStation,String arriveStation,String seatType,Integer ticketAmount)
+    {
+        Select selectDate = new Select(getComboBoxDepartDate());
+        selectDate.selectByVisibleText(Date);
+
+        Select selectDepartStation = new Select(getComboBoxDepartStation());
+        selectDepartStation.selectByVisibleText(departStation);
+
+        try { Thread.sleep(Constant.WAITING_TIME); }
+        catch(InterruptedException ie) {}
+
+        Select selectArriveStation = new Select(getComboBoxArriveStation());
+        selectArriveStation.selectByVisibleText(arriveStation);
+
+        Select selectSeatType = new Select(getComboBoxSeatType());
+        selectSeatType.selectByVisibleText(seatType);
+
+        Select selectTicketAmount = new Select(getComboBoxTicketAmount());
+        selectTicketAmount.selectByVisibleText(String.valueOf(ticketAmount));
+
+        Utilities.scrollPage(getButtonBookTicket());
+
+        this.getButtonBookTicket().click();
     }
 
+    public String getSuccessfulBookTicketMessage() { return this.getLabelPageTitle().getText(); }
 
-    public String getTicketDepartDate(){
-        try{
-            return this.getTdDepartDate().getText();
-        }catch (Exception e){
-            return "";
-        }
-    }
-
-    public String getTicketDepartStation(){
-        try{
-            return this.getTdDepartStation().getText();
-        }catch (Exception e){
-            return "";
-        }
-    }
-
-    public String getSuccessMessage(){
-        try{
-            return this.getLblBookSuccess().getText();
-        }catch (Exception e){
-            return "";
-        }
-    }
-
-    public String getTicketArriveStation(){
-        try{
-            return this.getTdArriveStation().getText();
-        }catch (Exception e){
-            return "";
-        }
-    }
-    public String getTicketAmount(){
-        try{
-            return this.getTdTicketAmount().getText();
-        }catch (Exception e){
-            return "";
-        }
-    }
     public String getBookTicketErrorMessage()
     {
         return this.getLabelBookTicketErrorMessage().getText();
     }
 
-    public String getBookTicketValidationErrorMessage()
+    public String getTicketAmountValidationErrorMessage()
     {
-        return this.getLabelBookTicketValidationErrorMessage().getText();
+        return this.getLabelTicketAmountValidationErrorMessage().getText();
     }
-}
 
+    public String getDepartDateAfterBooking() { return this.getTextDepartDateAfterBooking().getText(); }
+
+    public String getDepartStationAfterBooking() { return this.getTextDepartStationAfterBooking().getText(); }
+
+    public String getArriveStationAfterBooking() { return this.getTextArriveStationAfterBooking().getText(); }
+
+    public String getSeatTypeAfterBooking() { return this.getTextSeatTypeAfterBooking().getText(); }
+
+    public String getAmountAfterBooking() { return this.getTextAmountAfterBooking().getText(); }
+}
 

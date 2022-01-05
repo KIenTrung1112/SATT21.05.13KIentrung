@@ -1,6 +1,7 @@
 package TestCases;
 
-import Constant.Constant;
+import Common.Constant;
+import PageObject.Railway.BookTicketPage;
 import PageObject.Railway.HomePage;
 import PageObject.Railway.LoginPage;
 import org.testng.Assert;
@@ -11,24 +12,22 @@ public class TC04 extends TestBase {
     public void TC04() {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
-        PageObject.Railway.BookTicketPage bookTicketPage = new PageObject.Railway.BookTicketPage();
+        BookTicketPage bookTicketPage = new BookTicketPage();
 
-        System.out.println(" Navigate to QA Railway Website");
+        System.out.println("1. Navigate to QA Railway Website");
         homePage.open();
 
-        System.out.println(" Click on 'Book ticket' tab");
+        System.out.println("2. Click on 'Book ticket' tab");
         homePage.gotoBookTicketPage();
 
-        String checkLoginPage = String.valueOf(loginPage.checkLoginPageTitle());
-        Assert.assertEquals(checkLoginPage,"true");
+        Assert.assertEquals(loginPage.getLoginPageTitle(),"Login Page");
 
-        System.out.println(" Login with valid account");
+        System.out.println("3. Login with valid account");
         loginPage.login(Constant.USERNAME,Constant.PASSWORD);
 
-        String checkBookTicketPage = String.valueOf(bookTicketPage.checkBookTicketPageTitle());
         String checkBookTicketForm = String.valueOf(bookTicketPage.checkBookTicketForm());
 
-        Assert.assertEquals(checkBookTicketPage,"true");
+        Assert.assertEquals(bookTicketPage.getBookTicketPageTitle(),"Book ticket");
         Assert.assertEquals(checkBookTicketForm,"true");
     }
 }

@@ -1,6 +1,7 @@
 package TestCases;
 
-import Constant.Constant;
+import Common.Constant;
+import Common.Utilities;
 import PageObject.Railway.HomePage;
 import PageObject.Railway.RegisterPage;
 import org.testng.Assert;
@@ -20,8 +21,7 @@ public class TC07 extends TestBase {
 
         System.out.println("Enter valid information into all fields");
         System.out.println(" Click on 'Register' button");
-        registerPage.register(Constant.REGISTER_RANDOM_EMAIL(),Constant.REGISTER_PASSWORD,Constant.REGISTER_CONFIRM_PASSWORD,Constant.REGISTER_PID);
-
+        registerPage.register(Utilities.REGISTER_RANDOM_EMAIL(),Constant.REGISTER_PASSWORD,Constant.REGISTER_CONFIRM_PASSWORD,Constant.REGISTER_PID);
         String actualMessage = registerPage.getRegisterSuccessMessage();
         String expectedMessage = "Thank you for registering your account";
 

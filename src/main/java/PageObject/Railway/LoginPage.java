@@ -1,7 +1,6 @@
 package PageObject.Railway;
 
-import Constant.Constant;
-import PageObject.Railway.HomePage;
+import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -46,20 +45,21 @@ public class LoginPage extends GeneralPage{
         //Land on Home page
         return new HomePage();
     }
-
     public WebElement getLabelLoginErrorMessage()
     {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
-
     public String getLoginErrorMsg()
     {
         return this.getLblLoginErrorMsg().getText();
     }
-
     public String getLoginErrorMessage()
     {
         return this.getLabelLoginErrorMessage().getText();
+    }
+    public String getLoginPageTitle()
+    {
+        return this.getLabelPageTitle().getText();
     }
 
     public void loginMultipleTimes(String username,String password,int number)

@@ -3,9 +3,8 @@ package TestCases;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.Assert;
 import Common.Utilities;
-import Constant.Constant;
+import Common.Constant;
 
     public class TestBase {
 

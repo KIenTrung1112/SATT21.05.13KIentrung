@@ -5,7 +5,7 @@ import PageObject.Railway.HomePage;
 import PageObject.Railway.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import Constant.Constant;
+import Common.Constant;
 
 public class TC06 extends TestBase {
     @Test(description = "TC06 - User is redirected to Home page after logging out")
